@@ -64,6 +64,7 @@ public:
 signals:
     void tagsEdited();
     void tagRemoved(QString tag_text);
+    void tagEditIndex(int index);
 
 protected:
     // QWidget

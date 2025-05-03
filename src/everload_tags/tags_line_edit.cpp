@@ -63,6 +63,30 @@ struct TagsLineEdit::Impl : Common {
         emit ifce->tagRemoved(tag_text);
     }
 
+    void setEditorIndex(size_t i) {
+        Common::setEditorIndex(i);
+        emit ifce->tagEditIndex(i);
+    }
+
+    void editNewTag(size_t i) {
+        Common::editNewTag(i);
+        emit ifce->tagEditIndex(i);
+    }
+
+    void editPreviousTag() {
+        Common::editPreviousTag();
+        emit ifce->tagEditIndex(editing_index);
+    }
+
+    void editNextTag() {
+        Common::editNextTag();
+        emit ifce->tagEditIndex(editing_index);
+    }
+
+    void editTag(size_t i) {
+        Common::editTag(i);
+        emit ifce->tagEditIndex(i);
+    }
     QRect contentsRect() const {
         return ifce->contentsRect() - magic_margins;
     }
