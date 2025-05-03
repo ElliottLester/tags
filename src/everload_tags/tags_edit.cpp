@@ -60,6 +60,13 @@ struct TagsEdit::Impl : Common {
                         rounding_x_radius, rounding_y_radius);
     }
 
+    void removeTag(size_t i) {
+        // Hook removeTag to emit tagChanged
+        QString tag_text = tags[i].text;
+        Common::removeTag(i);
+        emit ifce->tagRemoved(tag_text);
+    }
+
     void setEditorText(QString const& text) {
         editorText() = text;
         moveCursor(editorText().length(), false);
