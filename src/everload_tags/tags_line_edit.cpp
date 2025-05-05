@@ -63,6 +63,11 @@ struct TagsLineEdit::Impl : Common {
         emit ifce->tagRemoved(tag_text);
     }
 
+    void setCursorVisible(bool visible, QObject* iQObject) {
+        Common::setCursorVisible(visible, iQObject);
+        emit ifce->cursorVisible(visible);
+    }
+
     QRect contentsRect() const {
         return ifce->contentsRect() - magic_margins;
     }
