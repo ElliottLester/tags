@@ -67,6 +67,11 @@ struct TagsEdit::Impl : Common {
         emit ifce->tagRemoved(tag_text);
     }
 
+    void setCursorVisible(bool visible, QObject* iQObject) {
+        Common::setCursorVisible(visible, iQObject);
+        emit ifce->cursorVisible(visible);
+    }
+
     void setEditorText(QString const& text) {
         editorText() = text;
         moveCursor(editorText().length(), false);
